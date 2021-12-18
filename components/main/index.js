@@ -21,6 +21,13 @@ function Main() {
     >
       <Top dark={darkMode} handleDarkMode={handleDarkMode} />
       <Button dark={darkMode} />
+      <Button dark={darkMode} />
+      <Button dark={darkMode} />
+      <Button dark={darkMode} />
+      <Button dark={darkMode} />
+      <Button dark={darkMode} />
+      <Button dark={darkMode} />
+      <Button dark={darkMode} />
     </View>
   );
 }

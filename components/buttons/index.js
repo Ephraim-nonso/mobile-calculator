@@ -1,160 +1,150 @@
 import React, { useState } from "react";
 import { Text, View } from "react-native";
-import { FontAwesome5 } from "@expo/vector-icons";
 import { Styles } from "./styles";
 import Screen from "../screen";
 import { TouchableOpacity } from "react-native";
 
 function Button(props) {
   const { dark } = props;
-  const [num, setNum] = useState(0);
+  // const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const [number, setNumber] = useState([]);
 
   const getValue = (event) => {
-    // console.log(event._dispatchInstances.memoizedProps.children);
-    setNum(event._dispatchInstances.memoizedProps.children);
+    // setNum(event._dispatchInstances.memoizedProps.children);
+    // const numberDerived = event._dispatchInstances.memoizedProps.children;
+    // setNumber([...number, numberDerived]);
+    // for (let i = 0; i < numbers.length; i++) {
+    //   if (numbers[i] === numberDerived) {
+    // setNumber([...number, numberDerived]);
+    //   }
+    // }
+    // if (numberDerived === "C") {
+    //   // setNumber(number.slice(0, -1));
+    //   setNumber("");
+    // }
+    // setNumber(num[numberDerived]);
   };
 
   return (
     <View>
       {/* This is the screen component below to send it values from the buttons */}
-      <Screen number={num} dark={dark} />
+      <Screen number={number} dark={dark} />
       <View style={Styles.container}>
         {/* Buttons of the application */}
         <View style={Styles.keysConatiner}>
           <TouchableOpacity
             style={[Styles.key, { backgroundColor: dark ? "#fff" : "#cccc" }]}
+            onPress={() => setNumber([])}
           >
-            <Text onPress={getValue} style={Styles.text}>
-              C
-            </Text>
+            <Text style={Styles.text}>C</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={[Styles.key, { backgroundColor: dark ? "#fff" : "#cccc" }]}
+            onPress={() => setNumber([...number, "+/-"])}
           >
-            <Text onPress={getValue} style={Styles.text}>
-              +/-
-            </Text>
+            <Text style={Styles.text}>+/-</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={[Styles.key, { backgroundColor: dark ? "#fff" : "#cccc" }]}
+            onPress={() => setNumber([...number, "%"])}
           >
-            <Text onPress={getValue} style={Styles.text}>
-              %
-            </Text>
+            <Text style={Styles.text}>%</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[Styles.key, Styles.brownKey]}>
-            <Text
-              onPress={getValue}
-              style={[Styles.operationKeys, Styles.text]}
-            >
-              <FontAwesome5 name="divide" size={24} color="white" />
-            </Text>
+          <TouchableOpacity
+            style={[Styles.key, Styles.brownKey]}
+            onPress={() => setNumber([...number, "÷"])}
+          >
+            <Text style={[Styles.operationKeys, Styles.text]}>÷</Text>
           </TouchableOpacity>
         </View>
 
         <View style={Styles.keysConatiner}>
           <TouchableOpacity
             style={[Styles.key, { backgroundColor: dark ? "#fff" : "#cccc" }]}
+            onPress={() => setNumber([...number, "7"])}
           >
-            <Text onPress={getValue} style={Styles.text}>
-              7
-            </Text>
+            <Text style={Styles.text}>7</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={[Styles.key, { backgroundColor: dark ? "#fff" : "#cccc" }]}
+            onPress={() => setNumber([...number, "8"])}
           >
-            <Text onPress={getValue} style={Styles.text}>
-              8
-            </Text>
+            <Text style={Styles.text}>8</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={[Styles.key, { backgroundColor: dark ? "#fff" : "#cccc" }]}
+            onPress={() => setNumber([...number, "9"])}
           >
-            <Text onPress={getValue} style={Styles.text}>
-              9
-            </Text>
+            <Text style={Styles.text}>9</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[Styles.key, Styles.brownKey]}>
-            <Text
-              onPress={getValue}
-              style={[Styles.operationKeys, Styles.text]}
-            >
-              X
-            </Text>
+          <TouchableOpacity
+            style={[Styles.key, Styles.brownKey]}
+            onPress={() => setNumber([...number, "x"])}
+          >
+            <Text style={[Styles.operationKeys, Styles.text]}>x</Text>
           </TouchableOpacity>
         </View>
 
         <View style={Styles.keysConatiner}>
           <TouchableOpacity
             style={[Styles.key, { backgroundColor: dark ? "#fff" : "#cccc" }]}
+            onPress={() => setNumber([...number, "4"])}
           >
-            <Text onPress={getValue} style={Styles.text}>
-              4
-            </Text>
+            <Text style={Styles.text}>4</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={[Styles.key, { backgroundColor: dark ? "#fff" : "#cccc" }]}
+            onPress={() => setNumber([...number, "5"])}
           >
-            <Text onPress={getValue} style={Styles.text}>
-              5
-            </Text>
+            <Text style={Styles.text}>5</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={[Styles.key, { backgroundColor: dark ? "#fff" : "#cccc" }]}
+            onPress={() => setNumber([...number, "6"])}
           >
-            <Text onPress={getValue} style={Styles.text}>
-              6
-            </Text>
+            <Text style={Styles.text}>6</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[Styles.key, Styles.brownKey]}>
-            <Text
-              onPress={getValue}
-              style={[Styles.operationKeys, Styles.text]}
-            >
-              -
-            </Text>
+          <TouchableOpacity
+            style={[Styles.key, Styles.brownKey]}
+            onPress={() => setNumber([...number, "-"])}
+          >
+            <Text style={[Styles.operationKeys, Styles.text]}>-</Text>
           </TouchableOpacity>
         </View>
 
         <View style={Styles.keysConatiner}>
           <TouchableOpacity
             style={[Styles.key, { backgroundColor: dark ? "#fff" : "#cccc" }]}
+            onPress={() => setNumber([...number, "1"])}
           >
-            <Text onPress={getValue} style={Styles.text}>
-              1
-            </Text>
+            <Text style={Styles.text}>1</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[Styles.key, { backgroundColor: dark ? "#fff" : "#cccc" }]}
+            onPress={() => setNumber([...number, "2"])}
           >
-            <Text onPress={getValue} style={Styles.text}>
-              2
-            </Text>
+            <Text style={Styles.text}>2</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[Styles.key, { backgroundColor: dark ? "#fff" : "#cccc" }]}
+            onPress={() => setNumber([...number, "3"])}
           >
-            <Text onPress={getValue} style={Styles.text}>
-              3
-            </Text>
+            <Text style={Styles.text}>3</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[Styles.key, Styles.brownKey]}>
-            <Text
-              onPress={getValue}
-              style={Styles.text}
-              style={Styles.operationKeys}
-            >
-              +
-            </Text>
+          <TouchableOpacity
+            style={[Styles.key, Styles.brownKey]}
+            onPress={() => setNumber([...number, "+"])}
+          >
+            <Text style={[Styles.text, Styles.operationKeys]}>+</Text>
           </TouchableOpacity>
         </View>
 
@@ -168,10 +158,9 @@ function Button(props) {
                 backgroundColor: dark ? "#fff" : "#cccc",
               },
             ]}
+            onPress={() => setNumber([...number, "0"])}
           >
-            <Text onPress={getValue} style={Styles.text}>
-              0
-            </Text>
+            <Text style={Styles.text}>0</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[
@@ -182,12 +171,14 @@ function Button(props) {
                 backgroundColor: dark ? "#fff" : "#cccc",
               },
             ]}
+            onPress={() => setNumber([...number, "."])}
           >
-            <Text onPress={getValue} style={Styles.text}>
-              .
-            </Text>
+            <Text style={Styles.text}>.</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[Styles.key, Styles.brownKey]}>
+          <TouchableOpacity
+            style={[Styles.key, Styles.brownKey]}
+            onPress={() => setNumber([...number, "="])}
+          >
             <Text style={Styles.operationKeys}>=</Text>
           </TouchableOpacity>
         </View>
